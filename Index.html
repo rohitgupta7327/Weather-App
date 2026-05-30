@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <!-- Main Wrapper -->
+    <div class="app-container">
+        <!-- HEADER -->
+        <header class="header" id="content">
+            <div class="message">
+                <h1 id="greeting">Good Morning</h1>
+                <h3 id="display-date"></h3>
+            </div>
+            
+            <div class="header-controls">
+                <div class="search-box">
+                    <div class="weather">
+                        <input type="text" class="search" placeholder="Search for a city" autocomplete="off">
+                        <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                        <div class="suggestions-dropdown" id="suggestions-list" style="display: none;"></div>
+                    </div>
+                </div>
+                <button class="button" onclick="getCurrentLocation()">
+                    <i class="fa-solid fa-location-crosshairs"></i> Current Location
+                </button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="basic-Info">
+                <h3>Today's Overview</h3>
+                <a href="https://openweathermap.org/" target="_blank" rel="noopener noreferrer" class="link">
+                    More Details <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+            <!-- TODAY'S WEATHER CARD -->
+            <div class="today-data">
+                <div class="today-header">
+                    <div class="location">
+                        <div id="location1">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span id="searched-location">Gorakhpur,</span>
+                            <span id="country">IN</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="today-body">
+                    <div class="temprature">
+                        <span id="temp">Temp</span>
+                        <div id="temp-value">16<span class="degree">°C</span></div>
+                    </div>
+
+                    <div class="weather-visual">
+                        <div class="weather-icon">
+                            <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Weather Icon" id="current-weather-logo" />
+                        </div>
+                        <h2 class="weather-condition" id="current-weather-desc">Rain</h2>
+                    </div>
+                </div>
+
+                <div class="today-footer">
+                    <h2 id="feel-like">Feels-Like: 15°C</h2>
+                    
+                    <div class="weather-info">
+                        <div class="weather-info-data" id="Wind-Speed">
+                            <i class="fa-solid fa-wind"></i> Wind Speed: 40 KM/H
+                        </div>
+                        <div class="weather-info-data" id="Pressure">
+                            <i class="fa-solid fa-gauge"></i> Pressure: 1021 hPa
+                        </div>
+                        <div class="weather-info-data" id="Visibility">
+                            <i class="fa-solid fa-eye"></i> Visibility: 1 KM
+                        </div>
+                        <div class="weather-info-data" id="Humidity">
+                            <i class="fa-solid fa-droplet"></i> Humidity: 60%
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FORECAST SECTION -->
+            <div class="forecast-section">
+                <h3>7-Day Forecast</h3>
+                <div class="Weather-Container">
+                    <div class="further-days">
+                        <h4 id="updated-day1"></h4>
+                        <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Forecast Icon" id="icon-day1">
+                        <p id="weather-description1" class="forecast-desc"></p>
+                        <h2 id="forecast1">30°C</h2>
+                    </div>
+                    <div class="further-days">
+                        <h4 id="updated-day2"></h4>
+                        <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Forecast Icon" id="icon-day2">
+                        <p id="weather-description2" class="forecast-desc"></p>
+                        <h2 id="forecast2">31°C</h2>
+                    </div>
+                    <div class="further-days">
+                        <h4 id="updated-day3"></h4>
+                        <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Forecast Icon" id="icon-day3">
+                        <p id="weather-description3" class="forecast-desc"></p>
+                        <h2 id="forecast3">32°C</h2>
+                    </div>
+                    <div class="further-days">
+                        <h4 id="updated-day4"></h4>
+                        <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Forecast Icon" id="icon-day4">
+                        <p id="weather-description4" class="forecast-desc"></p>
+                        <h2 id="forecast4">33°C</h2>
+                    </div>
+                    <div class="further-days">
+                        <h4 id="updated-day5"></h4>
+                        <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Forecast Icon" id="icon-day5">
+                        <p id="weather-description5" class="forecast-desc"></p>
+                        <h2 id="forecast5">34°C</h2>
+                    </div>
+                    <div class="further-days">
+                        <h4 id="updated-day6"></h4>
+                        <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Forecast Icon" id="icon-day6">
+                        <p id="weather-description6" class="forecast-desc"></p>
+                        <h2 id="forecast6">35°C</h2>
+                    </div>
+                    <div class="further-days">
+                        <h4 id="updated-day7"></h4>
+                        <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Forecast Icon" id="icon-day7">
+                        <p id="weather-description7" class="forecast-desc"></p>
+                        <h2 id="forecast7">36°C</h2>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>Made with ♥ by Rohit Gupta</p>
+            <p>&copy; 2026 Weather Dashboard</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="config.js"></script>
+    <script src="Fetch-weather-data.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

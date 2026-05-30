@@ -1,0 +1,123 @@
+/* Tablets and Medium Screens */
+@media (max-width: 1024px) {
+    .header {
+        padding: 20px 24px;
+    }
+
+    .message #greeting {
+        font-size: 2rem;
+    }
+
+    .today-data {
+        padding: 24px;
+    }
+
+    .weather-info {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .Weather-Container {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+
+    #temp-value {
+        font-size: 5.5rem;
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+    .app-container {
+        padding: 16px;
+        gap: 16px;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+        padding: 20px;
+        gap: 16px;
+    }
+
+    .message #display-date {
+        margin-bottom: 8px;
+    }
+
+    .header-controls {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .search-box,
+    .search-box .weather,
+    .search {
+        width: 100%;
+    }
+
+    .button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .today-body {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .temprature {
+        align-items: center;
+    }
+
+    .weather-visual {
+        align-items: center;
+    }
+
+    .Weather-Container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 8px;
+        padding: 16px;
+    }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+    .message #greeting {
+        font-size: 1.6rem;
+    }
+
+    #temp-value {
+        font-size: 4.5rem;
+    }
+
+    #temp-value .degree {
+        font-size: 2.2rem;
+    }
+
+    .weather-info {
+        grid-template-columns: 1fr;
+    }
+
+    .Weather-Container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .basic-Info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .basic-Info h3 {
+        font-size: 1.2rem;
+    }
+}
