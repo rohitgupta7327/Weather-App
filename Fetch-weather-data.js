@@ -2,11 +2,12 @@ const city = document.getElementsByClassName("search")[0];
 const searchIcon = document.getElementsByClassName("search-icon")[0];
 
 // Retrieve API Key from Vite .env or global window config
-const apiKey = (import.meta && import.meta.env && import.meta.env.VITE_WEATHER_API_KEY) || (typeof window !== 'undefined' && window.apiKey);
+const apiKey = (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.VITE_WEATHER_API_KEY) 
+  || (typeof window !== 'undefined' && window.apiKey) 
+  || '';
 
 if (!apiKey) {
-  console.error("OpenWeatherMap API Key is missing! Please set VITE_WEATHER_API_KEY in your .env file.");
-  alert("OpenWeatherMap API Key is missing! Please set VITE_WEATHER_API_KEY in your .env file.");
+  console.error("OpenWeatherMap API Key is missing! Ensure VITE_WEATHER_API_KEY is set in Render Environment Variables.");
 }
 
 // --------------------------------------------------------------------------
