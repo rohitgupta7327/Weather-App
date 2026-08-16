@@ -1,3 +1,12 @@
-# Local secrets configuration
-config.js
+# Dependency directories
 node_modules/
+
+# Local environment and secret files
+.env
+.env.local
+.env.*.local
+config.js
+
+# Build output & logs
+dist/
+*.log
